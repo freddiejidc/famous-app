@@ -1,0 +1,90 @@
+/* [SITE] */
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+/* [GALLERY] */
+#gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 15px;
+}
+
+#gallery img {
+  box-sizing: border-box;
+  width: 30%;
+  max-height: 150px;
+  padding: 25px;
+  /* fill, contain, cover, scale-down : use whichever you like */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* [RESPONSIVE GALLERY] */
+@media screen and (max-width: 1020px) {
+  #gallery img {
+    width: 40%;
+    padding-left: 2%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #gallery img {
+    width: 100%;
+    padding-left: 1px;;
+  }
+}
+
+/* [LIGHTBOX] */
+#lfront, #lback {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  width: 100%;
+  max-height: 100%;
+}
+
+#lfront img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 3% 0 0 0;
+  padding:0 30% 25% 22%; 
+  border: 100px
+  display: block;
+}
+
+@media screen and (max-width: 1020px) {
+  #lfront img {
+    width: 50%;
+    margin: 3% 0 0 20%;
+    padding:0 0 0 0; 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #lfront img {
+    width: 70%;
+    margin: 3% 0 0 15%;
+    padding:0 0 0 0; 
+  }
+}
+
+#lback {
+  height: 100vh;
+  background: #000;
+}
+
+#lfront.show {
+  z-index: 1000;
+  
+  opacity: 1;
+  visibility: visible;
+}
+
+#lback.show {
+  z-index: 999;
+  opacity: 0.8;
+  visibility: visible;
+}
